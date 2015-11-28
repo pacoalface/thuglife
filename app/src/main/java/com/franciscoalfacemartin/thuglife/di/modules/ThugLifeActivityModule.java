@@ -1,9 +1,9 @@
 package com.franciscoalfacemartin.thuglife.di.modules;
 
-import com.franciscoalfacemartin.thuglife.features.LoadAllThugSongsInteractor;
-import com.franciscoalfacemartin.thuglife.features.LoadAllThugSongsInteractorImpl;
-import com.franciscoalfacemartin.thuglife.presenters.MainActivityPresenter;
-import com.franciscoalfacemartin.thuglife.presenters.MainActivityPresenterImpl;
+import com.franciscoalfacemartin.thuglife.features.songs_list.LoadAllThugSongsInteractor;
+import com.franciscoalfacemartin.thuglife.features.songs_list.LoadAllThugSongsInteractorImpl;
+import com.franciscoalfacemartin.thuglife.features.home.presenters.MainActivityPresenter;
+import com.franciscoalfacemartin.thuglife.features.home.presenters.MainActivityPresenterImpl;
 import com.franciscoalfacemartin.thuglife.ui.ThugLifeActivity;
 
 import dagger.Module;

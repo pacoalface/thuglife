@@ -1,4 +1,4 @@
-package com.franciscoalfacemartin.thuglife.features;
+package com.franciscoalfacemartin.thuglife.features.songs_list;
 
 import com.franciscoalfacemartin.thuglife.callbacks.CollectionDataCallback;
 import com.franciscoalfacemartin.thuglife.interactors.Interactor;

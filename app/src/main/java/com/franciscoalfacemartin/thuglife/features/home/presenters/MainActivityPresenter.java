@@ -1,4 +1,4 @@
-package com.franciscoalfacemartin.thuglife.presenters;
+package com.franciscoalfacemartin.thuglife.features.home.presenters;
 
 /**
  * Created by franciscoalfacemartin on 17/10/15.

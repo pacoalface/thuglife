@@ -1,7 +1,7 @@
-package com.franciscoalfacemartin.thuglife.presenters;
+package com.franciscoalfacemartin.thuglife.features.home.presenters;
 
 import com.franciscoalfacemartin.thuglife.callbacks.CollectionDataCallback;
-import com.franciscoalfacemartin.thuglife.features.LoadAllThugSongsInteractor;
+import com.franciscoalfacemartin.thuglife.features.songs_list.LoadAllThugSongsInteractor;
 import com.franciscoalfacemartin.thuglife.model.Song;
 import com.franciscoalfacemartin.thuglife.navigation.Router;
 
@@ -13,7 +13,7 @@ import javax.inject.Inject;
 /**
  * Created by franciscoalfacemartin on 17/10/15.
  */
-public class MainActivityPresenterImpl implements MainActivityPresenter, CollectionDataCallback {
+public class MainActivityPresenterImpl implements MainActivityPresenter, CollectionDataCallback<Song> {
 
     @Inject
     public MainActivityPresenterImpl() {
@@ -44,8 +44,8 @@ public class MainActivityPresenterImpl implements MainActivityPresenter, Collect
     }
 
     @Override
-    public void onSuccess(List result) {
-
+    public void onSuccess(List<Song> result) {
+        view.showSongs(result);
     }
 
     @Override
@@ -55,5 +55,6 @@ public class MainActivityPresenterImpl implements MainActivityPresenter, Collect
 
     public interface View {
         void showError(int error);
+        void showSongs(List<Song> data);
     }
 }

@@ -14,8 +14,11 @@ import com.franciscoalfacemartin.thuglife.R;
 import com.franciscoalfacemartin.thuglife.di.components.DaggerThugLifeActivityComponent;
 import com.franciscoalfacemartin.thuglife.di.components.ThugLifeActivityComponent;
 import com.franciscoalfacemartin.thuglife.di.modules.ThugLifeActivityModule;
-import com.franciscoalfacemartin.thuglife.presenters.MainActivityPresenter;
-import com.franciscoalfacemartin.thuglife.presenters.MainActivityPresenterImpl;
+import com.franciscoalfacemartin.thuglife.features.home.presenters.MainActivityPresenter;
+import com.franciscoalfacemartin.thuglife.features.home.presenters.MainActivityPresenterImpl;
+import com.franciscoalfacemartin.thuglife.model.Song;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -89,5 +92,10 @@ public class ThugLifeActivity extends BaseActivity implements MainActivityPresen
     @Override
     public void showError(int error) {
         Toast.makeText(this, "error " + error, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showSongs(List<Song> data) {
+        Toast.makeText(this, "Data" + data.get(0).path,Toast.LENGTH_SHORT).show();
     }
 }

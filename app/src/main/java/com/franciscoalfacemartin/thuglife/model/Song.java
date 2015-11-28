@@ -1,8 +1,8 @@
 package com.franciscoalfacemartin.thuglife.model;
 
 public class Song {
-    String path = "";
-    String name = "";
+    public String path = "";
+    public String name = "";
 
     public Song(String path, String name) {
         this.path = path;
