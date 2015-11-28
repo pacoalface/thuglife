@@ -1,8 +1,5 @@
 package com.franciscoalfacemartin.thuglife.presenters;
 
-import android.content.Context;
-import android.widget.Toast;
-
 import com.franciscoalfacemartin.thuglife.navigation.Router;
 
 import javax.inject.Inject;
@@ -12,11 +9,8 @@ import javax.inject.Inject;
  */
 public class MainActivityPresenterImpl implements MainActivityPresenter {
 
-    Context context;
-
     @Inject
-    public MainActivityPresenterImpl(Context context) {
-        this.context = context;
+    public MainActivityPresenterImpl() {
     }
 
     private View view;
@@ -26,12 +20,17 @@ public class MainActivityPresenterImpl implements MainActivityPresenter {
 
     @Override
     public void openSettingsActivity() {
-        Toast.makeText(context, "Esto es un error",Toast.LENGTH_SHORT).show();
+        router.startSettingsActivity();
     }
 
     @Override
     public void setView(View view) {
         this.view = view;
+    }
+
+    @Override
+    public void loadAllSongs() {
+
     }
 
     public interface View {

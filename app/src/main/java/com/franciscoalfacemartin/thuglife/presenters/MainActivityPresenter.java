@@ -6,4 +6,5 @@ package com.franciscoalfacemartin.thuglife.presenters;
 public interface MainActivityPresenter {
     void openSettingsActivity();
     void setView(MainActivityPresenterImpl.View view);
+    void loadAllSongs();
 }

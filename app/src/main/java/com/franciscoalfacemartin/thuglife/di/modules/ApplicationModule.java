@@ -29,6 +29,6 @@ public class ApplicationModule {
     @Provides
     @Singleton
     Router provideNavigator() {
-        return new Router();
+        return new Router(application.getApplicationContext());
     }
 }

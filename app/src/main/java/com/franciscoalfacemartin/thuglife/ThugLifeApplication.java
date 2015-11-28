@@ -3,7 +3,7 @@ package com.franciscoalfacemartin.thuglife;
 import android.app.Application;
 
 import com.franciscoalfacemartin.thuglife.di.components.ApplicationComponent;
-import com.franciscoalfacemartin.thuglife.di.components.DaggerApplicationComponent;
+import com.franciscoalfacemartin.thuglife.di.components .DaggerApplicationComponent;
 import com.franciscoalfacemartin.thuglife.di.modules.ApplicationModule;
 
 /**

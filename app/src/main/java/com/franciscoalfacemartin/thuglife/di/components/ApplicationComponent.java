@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import com.franciscoalfacemartin.thuglife.ThugLifeApplication;
 import com.franciscoalfacemartin.thuglife.di.modules.ApplicationModule;
+import com.franciscoalfacemartin.thuglife.navigation.Router;
 
 import javax.inject.Singleton;
 
@@ -17,4 +18,5 @@ import dagger.Component;
 public interface ApplicationComponent {
     void inject(Activity activity);
     ThugLifeApplication application();
+    Router provideNavigator();
 }

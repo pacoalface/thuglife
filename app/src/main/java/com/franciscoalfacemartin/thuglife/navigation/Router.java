@@ -1,5 +1,8 @@
 package com.franciscoalfacemartin.thuglife.navigation;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import javax.inject.Inject;
 
 /**
@@ -7,11 +10,14 @@ import javax.inject.Inject;
  */
 public class Router {
 
+    private final Context context;
+
     @Inject
-    public Router() {
+    public Router(Context context) {
+        this.context = context;
     }
 
     public void startSettingsActivity() {
-
+        Toast.makeText(context, "Abriendo actividad de preferencias",Toast.LENGTH_SHORT).show();
     }
 }

@@ -1,5 +1,7 @@
 package com.franciscoalfacemartin.thuglife.di.modules;
 
+import com.franciscoalfacemartin.thuglife.interactors.LoadAllThugSongsInteractor;
+import com.franciscoalfacemartin.thuglife.interactors.LoadAllThugSongsInteractorImpl;
 import com.franciscoalfacemartin.thuglife.presenters.MainActivityPresenter;
 import com.franciscoalfacemartin.thuglife.presenters.MainActivityPresenterImpl;
 import com.franciscoalfacemartin.thuglife.ui.ThugLifeActivity;
@@ -20,7 +22,14 @@ public class ThugLifeActivityModule {
     }
 
     @Provides
-    MainActivityPresenter providesPresenter() {
-        return new MainActivityPresenterImpl(activity);
+    MainActivityPresenter providesPresenter(MainActivityPresenterImpl presenter) {
+        return presenter;
     }
+
+    @Provides
+    LoadAllThugSongsInteractor providesloadAllThugSongInteractor(LoadAllThugSongsInteractorImpl interactor) {
+        return interactor;
+    }
+
+
 }

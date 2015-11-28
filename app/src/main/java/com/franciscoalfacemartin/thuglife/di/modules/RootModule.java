@@ -28,4 +28,5 @@ public class RootModule {
     Activity activity() {
         return this.activity;
     }
+
 }
