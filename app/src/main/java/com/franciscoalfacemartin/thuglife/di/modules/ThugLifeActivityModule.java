@@ -1,7 +1,7 @@
 package com.franciscoalfacemartin.thuglife.di.modules;
 
-import com.franciscoalfacemartin.thuglife.interactors.LoadAllThugSongsInteractor;
-import com.franciscoalfacemartin.thuglife.interactors.LoadAllThugSongsInteractorImpl;
+import com.franciscoalfacemartin.thuglife.features.LoadAllThugSongsInteractor;
+import com.franciscoalfacemartin.thuglife.features.LoadAllThugSongsInteractorImpl;
 import com.franciscoalfacemartin.thuglife.presenters.MainActivityPresenter;
 import com.franciscoalfacemartin.thuglife.presenters.MainActivityPresenterImpl;
 import com.franciscoalfacemartin.thuglife.ui.ThugLifeActivity;

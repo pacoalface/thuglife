@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.franciscoalfacemartin.thuglife.BaseActivity;
 import com.franciscoalfacemartin.thuglife.R;
@@ -53,7 +54,6 @@ public class ThugLifeActivity extends BaseActivity implements MainActivityPresen
         component().inject(this);
 
         presenter.setView(this);
-
         presenter.openSettingsActivity();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -79,6 +79,7 @@ public class ThugLifeActivity extends BaseActivity implements MainActivityPresen
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            presenter.loadAllSongs();
             return true;
         }
 
@@ -87,6 +88,6 @@ public class ThugLifeActivity extends BaseActivity implements MainActivityPresen
 
     @Override
     public void showError(int error) {
-
+        Toast.makeText(this, "error " + error, Toast.LENGTH_SHORT).show();
     }
 }
