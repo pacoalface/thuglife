@@ -27,11 +27,6 @@ public class MainActivityPresenterImpl implements MainActivityPresenter, Collect
     private MainView view;
 
     @Override
-    public void openSettingsActivity() {
-        router.startSettingsActivity();
-    }
-
-    @Override
     public void setView(MainView view) {
         this.view = view;
     }
@@ -39,6 +34,11 @@ public class MainActivityPresenterImpl implements MainActivityPresenter, Collect
     @Override
     public void loadAllSongs() {
         interactor.run(new Video("","aahskash"), this);
+    }
+
+    @Override
+    public void refresh() {
+
     }
 
     @Override

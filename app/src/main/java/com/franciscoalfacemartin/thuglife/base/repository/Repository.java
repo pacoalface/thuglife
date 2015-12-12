@@ -6,11 +6,13 @@ import android.net.NetworkInfo;
 
 import javax.inject.Inject;
 
-public abstract class Repository {
+public class Repository {
 
-    @Inject Context context;
+    @Inject
+    public Repository(  ) {
+    }
 
-    protected boolean haveInternetConnection(){
+    protected boolean haveInternetConnection(Context context){
         ConnectivityManager cm =(ConnectivityManager) context.getSystemService( Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnectedOrConnecting();

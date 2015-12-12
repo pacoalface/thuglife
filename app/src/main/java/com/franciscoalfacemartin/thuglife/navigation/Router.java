@@ -3,6 +3,8 @@ package com.franciscoalfacemartin.thuglife.navigation;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.franciscoalfacemartin.thuglife.model.Video;
+
 import javax.inject.Inject;
 
 /**
@@ -17,7 +19,7 @@ public class Router {
         this.context = context;
     }
 
-    public void startSettingsActivity() {
+    public void startVideoActivity(Video video) {
         Toast.makeText(context, "Abriendo actividad de preferencias",Toast.LENGTH_SHORT).show();
     }
 }

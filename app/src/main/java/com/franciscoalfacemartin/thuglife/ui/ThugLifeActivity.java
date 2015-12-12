@@ -24,17 +24,14 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ThugLifeActivity extends BaseActivity implements MainView {
 
     @Inject
     MainActivityPresenter presenter;
-
     @Bind(R.id.toolbar)
     Toolbar toolbar;
-    @Bind(R.id.fab)
-    FloatingActionButton fab;
-
 
     private ThugLifeActivityComponent component;
 
@@ -55,21 +52,9 @@ public class ThugLifeActivity extends BaseActivity implements MainView {
         setContentView(R.layout.activity_thug_life);
         ButterKnife.bind(this);
         component().inject(this);
-
         presenter.setView(this);
-        presenter.openSettingsActivity();
-
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
@@ -98,4 +83,9 @@ public class ThugLifeActivity extends BaseActivity implements MainView {
     public void showSongs(List<Video> data) {
         Toast.makeText(this, "Data" + data.get(0).path,Toast.LENGTH_SHORT).show();
     }
+
+    @OnClick(R.id.fab) public void refresh(View view) {
+        presenter.refresh();
+    }
+
 }

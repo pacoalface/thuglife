@@ -1,15 +1,9 @@
 package com.franciscoalfacemartin.thuglife.base.datasource;
 
-import javax.inject.Inject;
-
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
 
 public abstract class ApiDataSource {
-
-    @Inject
-    public ApiDataSource() {
-    }
 
     protected Retrofit generateRetrofitClient() {
         Retrofit retrofit = new Retrofit.Builder()
