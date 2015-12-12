@@ -1,8 +1,8 @@
 package com.franciscoalfacemartin.thuglife.di.components;
 import com.franciscoalfacemartin.thuglife.di.annotations.PerActivity;
 import com.franciscoalfacemartin.thuglife.di.modules.ThugLifeActivityModule;
-import com.franciscoalfacemartin.thuglife.features.songs_list.interactor.LoadAllThugSongsInteractor;
-import com.franciscoalfacemartin.thuglife.features.songs_list.MainActivityPresenterImpl;
+import com.franciscoalfacemartin.thuglife.features.videos_list.interactor.LoadAllThugVideosInteractor;
+import com.franciscoalfacemartin.thuglife.features.videos_list.presenter.MainActivityPresenterImpl;
 import com.franciscoalfacemartin.thuglife.ui.ThugLifeActivity;
 
 import dagger.Component;
@@ -15,5 +15,5 @@ import dagger.Component;
 public interface ThugLifeActivityComponent {
     void inject(ThugLifeActivity activity);
     MainActivityPresenterImpl getMainActivityPresenter();
-    LoadAllThugSongsInteractor providesloadAllThugSongInteractor();
+    LoadAllThugVideosInteractor providesloadAllThugSongInteractor();
 }

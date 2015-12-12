@@ -1,10 +1,10 @@
 package com.franciscoalfacemartin.thuglife.model;
 
-public class Song {
+public class Video {
     public String path = "";
     public String name = "";
 
-    public Song(String path, String name) {
+    public Video( String path, String name) {
         this.path = path;
         this.name = name;
     }

@@ -14,9 +14,9 @@ import com.franciscoalfacemartin.thuglife.R;
 import com.franciscoalfacemartin.thuglife.di.components.DaggerThugLifeActivityComponent;
 import com.franciscoalfacemartin.thuglife.di.components.ThugLifeActivityComponent;
 import com.franciscoalfacemartin.thuglife.di.modules.ThugLifeActivityModule;
-import com.franciscoalfacemartin.thuglife.features.songs_list.MainActivityPresenter;
-import com.franciscoalfacemartin.thuglife.features.songs_list.MainView;
-import com.franciscoalfacemartin.thuglife.model.Song;
+import com.franciscoalfacemartin.thuglife.features.videos_list.presenter.MainActivityPresenter;
+import com.franciscoalfacemartin.thuglife.features.videos_list.presenter.MainView;
+import com.franciscoalfacemartin.thuglife.model.Video;
 
 import java.util.List;
 
@@ -95,7 +95,7 @@ public class ThugLifeActivity extends BaseActivity implements MainView {
     }
 
     @Override
-    public void showSongs(List<Song> data) {
+    public void showSongs(List<Video> data) {
         Toast.makeText(this, "Data" + data.get(0).path,Toast.LENGTH_SHORT).show();
     }
 }
