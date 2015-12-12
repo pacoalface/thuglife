@@ -1,4 +1,4 @@
-package com.franciscoalfacemartin.thuglife.callbacks;
+package com.franciscoalfacemartin.thuglife.base.callbacks;
 
 import java.util.List;
 

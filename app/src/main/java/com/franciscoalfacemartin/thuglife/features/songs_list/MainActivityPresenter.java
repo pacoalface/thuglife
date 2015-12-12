@@ -1,10 +1,10 @@
-package com.franciscoalfacemartin.thuglife.features.home.presenters;
+package com.franciscoalfacemartin.thuglife.features.songs_list;
 
 /**
  * Created by franciscoalfacemartin on 17/10/15.
  */
 public interface MainActivityPresenter {
     void openSettingsActivity();
-    void setView(MainActivityPresenterImpl.View view);
+    void setView(MainView view);
     void loadAllSongs();
 }

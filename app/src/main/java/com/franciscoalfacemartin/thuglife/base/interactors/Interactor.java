@@ -1,4 +1,4 @@
-package com.franciscoalfacemartin.thuglife.interactors;
+package com.franciscoalfacemartin.thuglife.base.interactors;
 
 /**
  * Created by franciscoalfacemartin on 28/11/15.

@@ -14,8 +14,8 @@ import com.franciscoalfacemartin.thuglife.R;
 import com.franciscoalfacemartin.thuglife.di.components.DaggerThugLifeActivityComponent;
 import com.franciscoalfacemartin.thuglife.di.components.ThugLifeActivityComponent;
 import com.franciscoalfacemartin.thuglife.di.modules.ThugLifeActivityModule;
-import com.franciscoalfacemartin.thuglife.features.home.presenters.MainActivityPresenter;
-import com.franciscoalfacemartin.thuglife.features.home.presenters.MainActivityPresenterImpl;
+import com.franciscoalfacemartin.thuglife.features.songs_list.MainActivityPresenter;
+import com.franciscoalfacemartin.thuglife.features.songs_list.MainView;
 import com.franciscoalfacemartin.thuglife.model.Song;
 
 import java.util.List;
@@ -25,7 +25,7 @@ import javax.inject.Inject;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class ThugLifeActivity extends BaseActivity implements MainActivityPresenterImpl.View{
+public class ThugLifeActivity extends BaseActivity implements MainView {
 
     @Inject
     MainActivityPresenter presenter;

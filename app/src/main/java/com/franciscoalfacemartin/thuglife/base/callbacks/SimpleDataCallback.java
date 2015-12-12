@@ -1,4 +1,4 @@
-package com.franciscoalfacemartin.thuglife.callbacks;
+package com.franciscoalfacemartin.thuglife.base.callbacks;
 
 /**
  * Created by franciscoalfacemartin on 28/11/15.

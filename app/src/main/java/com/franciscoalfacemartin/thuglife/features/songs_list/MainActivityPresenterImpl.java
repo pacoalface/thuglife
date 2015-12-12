@@ -1,7 +1,7 @@
-package com.franciscoalfacemartin.thuglife.features.home.presenters;
+package com.franciscoalfacemartin.thuglife.features.songs_list;
 
-import com.franciscoalfacemartin.thuglife.callbacks.CollectionDataCallback;
-import com.franciscoalfacemartin.thuglife.features.songs_list.LoadAllThugSongsInteractor;
+import com.franciscoalfacemartin.thuglife.base.callbacks.CollectionDataCallback;
+import com.franciscoalfacemartin.thuglife.features.songs_list.interactor.LoadAllThugSongsInteractor;
 import com.franciscoalfacemartin.thuglife.model.Song;
 import com.franciscoalfacemartin.thuglife.navigation.Router;
 
@@ -25,7 +25,7 @@ public class MainActivityPresenterImpl implements MainActivityPresenter, Collect
     @Inject
     Router router;
 
-    private View view;
+    private MainView view;
 
 
     @Override
@@ -34,7 +34,7 @@ public class MainActivityPresenterImpl implements MainActivityPresenter, Collect
     }
 
     @Override
-    public void setView(View view) {
+    public void setView(MainView view) {
         this.view = view;
     }
 
@@ -53,8 +53,5 @@ public class MainActivityPresenterImpl implements MainActivityPresenter, Collect
         view.showError(error);
     }
 
-    public interface View {
-        void showError(int error);
-        void showSongs(List<Song> data);
-    }
+
 }

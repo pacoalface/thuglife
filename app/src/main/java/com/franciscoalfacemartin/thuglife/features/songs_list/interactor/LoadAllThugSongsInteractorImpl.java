@@ -1,6 +1,6 @@
-package com.franciscoalfacemartin.thuglife.features.songs_list;
+package com.franciscoalfacemartin.thuglife.features.songs_list.interactor;
 
-import com.franciscoalfacemartin.thuglife.callbacks.CollectionDataCallback;
+import com.franciscoalfacemartin.thuglife.base.callbacks.CollectionDataCallback;
 import com.franciscoalfacemartin.thuglife.model.Song;
 
 import java.util.ArrayList;
