@@ -15,7 +15,6 @@ import javax.inject.Inject;
  */
 public class ThugVideosRepositoryImpl extends Repository implements ThugVideosRepository{
 
-
     Context context;
 
     @Inject
@@ -30,7 +29,7 @@ public class ThugVideosRepositoryImpl extends Repository implements ThugVideosRe
         if(haveInternetConnection(context)) {
             return dataSource.getThugLifeVideos();
         } else {
-            return null;
+            return new ArrayList<>(  );
         }
     }
 }

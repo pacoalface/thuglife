@@ -1,7 +1,5 @@
 package com.franciscoalfacemartin.thuglife.di.modules;
 
-import android.app.Application;
-
 import com.franciscoalfacemartin.thuglife.ThugLifeApplication;
 import com.franciscoalfacemartin.thuglife.navigation.Router;
 import com.google.gson.FieldNamingPolicy;
@@ -23,9 +21,10 @@ import retrofit.Retrofit;
 
 @Module
 public class ApplicationModule {
+
     private ThugLifeApplication application;
 
-    public ApplicationModule(ThugLifeApplication application) {
+    public ApplicationModule( ThugLifeApplication application ) {
         this.application = application;
     }
 
@@ -38,14 +37,14 @@ public class ApplicationModule {
     @Provides
     @Singleton
     Router provideNavigator() {
-        return new Router(application.getApplicationContext());
+        return new Router( application.getApplicationContext() );
     }
 
     @Provides
     @Singleton
-    Cache provideOkHttpCache(ThugLifeApplication application) {
+    Cache provideOkHttpCache( ThugLifeApplication application ) {
         int cacheSize = 10 * 1024 * 1024; // 10 MiB
-        Cache cache = new Cache(application.getCacheDir(), cacheSize);
+        Cache cache = new Cache( application.getCacheDir(), cacheSize );
         return cache;
     }
 
@@ -53,26 +52,22 @@ public class ApplicationModule {
     @Singleton
     Gson provideGson() {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.setFieldNamingPolicy( FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
+        gsonBuilder.setFieldNamingPolicy( FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES );
         return gsonBuilder.create();
     }
 
     @Provides
     @Singleton
-    OkHttpClient provideOkHttpClient(Cache cache) {
+    OkHttpClient provideOkHttpClient( Cache cache ) {
         OkHttpClient client = new OkHttpClient();
-        client.setCache(cache);
+        client.setCache( cache );
         return client;
     }
 
     @Provides
     @Singleton
-    Retrofit provideRetrofit( Gson gson, OkHttpClient okHttpClient) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .addConverterFactory( GsonConverterFactory.create(gson))
-                .baseUrl("https://gdata.youtube.com/")
-                .client(okHttpClient)
-                .build();
+    Retrofit provideRetrofit( Gson gson, OkHttpClient okHttpClient ) {
+        Retrofit retrofit = new Retrofit.Builder().addConverterFactory( GsonConverterFactory.create( gson ) ).baseUrl( "https://gdata.youtube.com/" ).client( okHttpClient ).build();
         return retrofit;
     }
 }

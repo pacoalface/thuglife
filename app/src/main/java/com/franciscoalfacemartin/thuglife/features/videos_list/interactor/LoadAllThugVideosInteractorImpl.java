@@ -18,8 +18,13 @@ public class LoadAllThugVideosInteractorImpl implements LoadAllThugVideosInterac
     @Inject ThugVideosRepository repository;
 
     @Override
-    public void run( Video data, CollectionDataCallback callback) {
-        ArrayList<Video> songs = repository.loadVideos();
-        callback.onSuccess(songs);
+    public void run( Video data, final CollectionDataCallback callback) {
+        new Thread( ){
+            @Override
+            public void run() {
+                ArrayList<Video> songs = repository.loadVideos();
+                callback.onSuccess(songs);            }
+        }.start();
+
     }
 }

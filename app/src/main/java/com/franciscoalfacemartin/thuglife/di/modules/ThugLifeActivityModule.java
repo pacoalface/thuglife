@@ -41,4 +41,9 @@ public class ThugLifeActivityModule {
         return new ThugVideosRepositoryImpl( (Context) activity );
     }
 
+    @Provides
+    ThugLifeVideosApiDataSource providesDataSource() {
+        return new ThugLifeVideosApiDataSource( (Context) activity );
+    }
+
 }

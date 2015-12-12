@@ -22,5 +22,5 @@ public interface ApplicationComponent {
     ThugLifeApplication application();
     Router provideNavigator();
     Gson provideGson();
-        Retrofit retrofit();
+    Retrofit retrofit();
 }

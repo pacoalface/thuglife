@@ -2,6 +2,7 @@ package com.franciscoalfacemartin.thuglife.di.components;
 
 import com.franciscoalfacemartin.thuglife.di.annotations.PerActivity;
 import com.franciscoalfacemartin.thuglife.di.modules.ThugLifeActivityModule;
+import com.franciscoalfacemartin.thuglife.features.videos_list.datasources.ThugLifeVideosApiDataSource;
 import com.franciscoalfacemartin.thuglife.features.videos_list.interactor.LoadAllThugVideosInteractor;
 import com.franciscoalfacemartin.thuglife.features.videos_list.presenter.MainActivityPresenter;
 import com.franciscoalfacemartin.thuglife.features.videos_list.repository.ThugVideosRepository;
@@ -23,4 +24,6 @@ public interface ThugLifeActivityComponent {
     LoadAllThugVideosInteractor providesloadAllThugSongInteractor();
 
     ThugVideosRepository providesThugVideosRepository();
+
+    ThugLifeVideosApiDataSource provsApiDataSource();
 }
