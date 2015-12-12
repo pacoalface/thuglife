@@ -67,7 +67,7 @@ public class ApplicationModule {
     @Provides
     @Singleton
     Retrofit provideRetrofit( Gson gson, OkHttpClient okHttpClient ) {
-        Retrofit retrofit = new Retrofit.Builder().addConverterFactory( GsonConverterFactory.create( gson ) ).baseUrl( "https://gdata.youtube.com/" ).client( okHttpClient ).build();
+        Retrofit retrofit = new Retrofit.Builder().addConverterFactory( GsonConverterFactory.create( gson ) ).baseUrl( "https://www.googleapis.com/" ).client( okHttpClient ).build();
         return retrofit;
     }
 }

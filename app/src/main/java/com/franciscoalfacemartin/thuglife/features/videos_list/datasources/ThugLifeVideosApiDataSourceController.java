@@ -7,6 +7,6 @@ import retrofit.http.GET;
 
 public interface ThugLifeVideosApiDataSourceController {
 
-    @GET("feeds/api/users/UCPN4CSgbKoO8a80KJc8s0bw/uploads?&alt=json")
+    @GET("/youtube/v3/channels?part=contentDetails&forUsername=Thug%20Life%20Videos&key=AIzaSyAJKRb5iGlmVGNglXZ1Cid6ckJOsSr9mVw")
     Call<Object> loadVideos( );
 }
