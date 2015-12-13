@@ -8,10 +8,6 @@ import javax.inject.Inject;
 
 public class Repository {
 
-    @Inject
-    public Repository(  ) {
-    }
-
     protected boolean haveInternetConnection(Context context){
         ConnectivityManager cm =(ConnectivityManager) context.getSystemService( Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();

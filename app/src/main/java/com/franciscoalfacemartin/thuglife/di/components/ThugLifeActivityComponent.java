@@ -7,8 +7,11 @@ import com.franciscoalfacemartin.thuglife.features.videos_list.interactor.LoadAl
 import com.franciscoalfacemartin.thuglife.features.videos_list.presenter.MainActivityPresenter;
 import com.franciscoalfacemartin.thuglife.features.videos_list.repository.ThugVideosRepository;
 import com.franciscoalfacemartin.thuglife.ui.ThugLifeActivity;
+import com.google.gson.Gson;
+import com.squareup.okhttp.Cache;
 
 import dagger.Component;
+import retrofit.Retrofit;
 
 /**
  * Created by franciscoalfacemartin on 17/10/15.
@@ -25,5 +28,4 @@ public interface ThugLifeActivityComponent {
 
     ThugVideosRepository providesThugVideosRepository();
 
-    ThugLifeVideosApiDataSource provsApiDataSource();
 }

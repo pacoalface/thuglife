@@ -16,13 +16,14 @@ import javax.inject.Inject;
 public class ThugVideosRepositoryImpl extends Repository implements ThugVideosRepository{
 
     Context context;
+    ThugLifeVideosApiDataSource dataSource;
 
     @Inject
-    public ThugVideosRepositoryImpl( Context context ) {
+    public ThugVideosRepositoryImpl( Context context, ThugLifeVideosApiDataSource dataSource ) {
         this.context = context;
+        this.dataSource = dataSource;
     }
 
-    @Inject ThugLifeVideosApiDataSource dataSource;
 
     @Override
     public ArrayList<Video> loadVideos() {

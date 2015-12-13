@@ -3,6 +3,7 @@ package com.franciscoalfacemartin.thuglife.di.modules;
 import android.content.Context;
 
 import com.franciscoalfacemartin.thuglife.features.videos_list.datasources.ThugLifeVideosApiDataSource;
+import com.franciscoalfacemartin.thuglife.features.videos_list.datasources.ThugLifeVideosApiDataSourceImpl;
 import com.franciscoalfacemartin.thuglife.features.videos_list.interactor.LoadAllThugVideosInteractor;
 import com.franciscoalfacemartin.thuglife.features.videos_list.interactor.LoadAllThugVideosInteractorImpl;
 import com.franciscoalfacemartin.thuglife.features.videos_list.presenter.MainActivityPresenter;
@@ -22,28 +23,22 @@ public class ThugLifeActivityModule {
 
     ThugLifeActivity activity;
 
-    public ThugLifeActivityModule(ThugLifeActivity activity) {
+    public ThugLifeActivityModule( ThugLifeActivity activity ) {
         this.activity = activity;
     }
 
     @Provides
-    MainActivityPresenter providesPresenter(MainActivityPresenterImpl presenter) {
+    MainActivityPresenter providesPresenter( MainActivityPresenterImpl presenter ) {
         return presenter;
     }
 
     @Provides
-    LoadAllThugVideosInteractor providesloadAllThugSongInteractor( LoadAllThugVideosInteractorImpl interactor) {
+    LoadAllThugVideosInteractor providesloadAllThugSongInteractor( LoadAllThugVideosInteractorImpl interactor ) {
         return interactor;
     }
 
     @Provides
-    ThugVideosRepository providesThugVideosRepository() {
-        return new ThugVideosRepositoryImpl( (Context) activity );
+    ThugVideosRepository providesThugVideosRepository( ) {
+        return new ThugVideosRepositoryImpl( (Context) activity,new ThugLifeVideosApiDataSourceImpl(activity) );
     }
-
-    @Provides
-    ThugLifeVideosApiDataSource providesDataSource() {
-        return new ThugLifeVideosApiDataSource( (Context) activity );
-    }
-
 }

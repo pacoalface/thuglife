@@ -6,6 +6,7 @@ import com.franciscoalfacemartin.thuglife.ThugLifeApplication;
 import com.franciscoalfacemartin.thuglife.di.modules.ApplicationModule;
 import com.franciscoalfacemartin.thuglife.navigation.Router;
 import com.google.gson.Gson;
+import com.squareup.okhttp.Cache;
 
 import javax.inject.Singleton;
 
@@ -21,6 +22,4 @@ public interface ApplicationComponent {
     void inject(Activity activity);
     ThugLifeApplication application();
     Router provideNavigator();
-    Gson provideGson();
-    Retrofit retrofit();
 }

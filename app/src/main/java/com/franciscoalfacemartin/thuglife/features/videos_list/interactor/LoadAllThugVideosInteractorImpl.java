@@ -1,6 +1,7 @@
 package com.franciscoalfacemartin.thuglife.features.videos_list.interactor;
 
 import com.franciscoalfacemartin.thuglife.base.callbacks.CollectionDataCallback;
+import com.franciscoalfacemartin.thuglife.base.constants.ErrorConstants;
 import com.franciscoalfacemartin.thuglife.features.videos_list.repository.ThugVideosRepository;
 import com.franciscoalfacemartin.thuglife.features.videos_list.repository.ThugVideosRepositoryImpl;
 import com.franciscoalfacemartin.thuglife.model.Video;
@@ -23,7 +24,12 @@ public class LoadAllThugVideosInteractorImpl implements LoadAllThugVideosInterac
             @Override
             public void run() {
                 ArrayList<Video> songs = repository.loadVideos();
-                callback.onSuccess(songs);            }
+                if(songs != null) {
+                    callback.onSuccess(songs);
+                } else {
+                    callback.onError( ErrorConstants.API_ERROR );
+                }
+            }
         }.start();
 
     }

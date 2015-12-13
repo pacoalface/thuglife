@@ -78,7 +78,7 @@ public class ThugLifeActivity extends BaseActivity implements MainView {
         runOnUiThread( new Runnable() {
             @Override
             public void run() {
-                Toast.makeText( ThugLifeActivity.this, "Data" + data.toString(), Toast.LENGTH_SHORT ).show();
+                //Toast.makeText( ThugLifeActivity.this, "Data" + data.toString(), Toast.LENGTH_SHORT ).show();
             }
         } );
     }
