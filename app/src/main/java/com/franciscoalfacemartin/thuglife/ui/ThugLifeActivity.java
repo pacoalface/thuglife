@@ -1,14 +1,16 @@
 package com.franciscoalfacemartin.thuglife.ui;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import com.franciscoalfacemartin.thuglife.BaseActivity;
 import com.franciscoalfacemartin.thuglife.R;
+import com.franciscoalfacemartin.thuglife.base.callbacks.ItemClickListener;
 import com.franciscoalfacemartin.thuglife.di.components.DaggerThugLifeActivityComponent;
 import com.franciscoalfacemartin.thuglife.di.components.ThugLifeActivityComponent;
 import com.franciscoalfacemartin.thuglife.di.modules.ThugLifeActivityModule;
@@ -16,20 +18,24 @@ import com.franciscoalfacemartin.thuglife.features.videos_list.presenter.MainAct
 import com.franciscoalfacemartin.thuglife.features.videos_list.presenter.MainView;
 import com.franciscoalfacemartin.thuglife.model.Video;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
-public class ThugLifeActivity extends BaseActivity implements MainView {
+
+public class ThugLifeActivity extends BaseActivity implements MainView, ItemClickListener {
 
     @Inject MainActivityPresenter presenter;
+    @Inject VideoAdapter adapter;
     @Bind( R.id.toolbar ) Toolbar toolbar;
+    @Bind( R.id.recycler_view ) RecyclerView recyclerView;
 
     private ThugLifeActivityComponent component;
+    private ArrayList<Video> videos;
 
     public ThugLifeActivityComponent component() {
         if ( component == null ) {
@@ -74,17 +80,24 @@ public class ThugLifeActivity extends BaseActivity implements MainView {
     }
 
     @Override
-    public void showSongs( final List<Video> data ) {
+    public void showVideos( final List<Video> data ) {
+        videos = new ArrayList<>( data );
         runOnUiThread( new Runnable() {
             @Override
             public void run() {
-                //Toast.makeText( ThugLifeActivity.this, "Data" + data.toString(), Toast.LENGTH_SHORT ).show();
+                setupRecyclerView();
             }
         } );
     }
 
-    @OnClick( R.id.fab )
-    public void refresh( View view ) {
-        presenter.refresh();
+    private void setupRecyclerView() {
+        recyclerView.setLayoutManager( new LinearLayoutManager( this ) );
+        adapter.setData( videos, this );
+        recyclerView.setAdapter( adapter );
+    }
+
+    @Override
+    public void onClickItem( int position ) {
+        presenter.openVideo(videos.get( position ));
     }
 }

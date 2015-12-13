@@ -1,6 +1,8 @@
 package com.franciscoalfacemartin.thuglife.navigation;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.widget.Toast;
 
 import com.franciscoalfacemartin.thuglife.model.Video;
@@ -20,6 +22,8 @@ public class Router {
     }
 
     public void startVideoActivity(Video video) {
-        Toast.makeText(context, "Abriendo actividad de preferencias",Toast.LENGTH_SHORT).show();
+        Intent intent=new Intent( Intent.ACTION_VIEW,
+                Uri.parse("http://www.youtube.com/watch?v="+video.url));
+        context.startActivity(intent);
     }
 }

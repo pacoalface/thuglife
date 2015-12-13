@@ -33,17 +33,17 @@ public class MainActivityPresenterImpl implements MainActivityPresenter, Collect
 
     @Override
     public void loadAllSongs() {
-        interactor.run(new Video("","aahskash"), this);
+        interactor.run(new Video("","aahskash",""), this);
     }
 
     @Override
-    public void refresh() {
-
+    public void openVideo( Video video ) {
+        router.startVideoActivity( video );
     }
 
     @Override
     public void onSuccess(List<Video> result) {
-        view.showSongs(result);
+        view.showVideos(result);
     }
 
     @Override

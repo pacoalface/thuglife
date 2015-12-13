@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import com.franciscoalfacemartin.thuglife.base.datasource.ApiDataSource;
 import com.franciscoalfacemartin.thuglife.model.Video;
+import com.franciscoalfacemartin.thuglife.model.api_results.ThugVideoResult;
 
 import java.util.ArrayList;
 
@@ -23,17 +24,19 @@ public class ThugLifeVideosApiDataSourceImpl extends ApiDataSource implements Th
     @Override
     public ArrayList<Video> getThugLifeVideos() {
         try {
-
-            final Object videos = generateRetrofitClient().create( ThugLifeVideosApiDataSourceController.class ).loadVideos().execute().body();
-            ((AppCompatActivity)context).runOnUiThread( new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText( context, "Lo que hay " + videos.toString(), Toast.LENGTH_SHORT ).show();
-                }
-            } );
-            return new ArrayList<>();
+            final ThugVideoResult videos = generateRetrofitClient().create( ThugLifeVideosApiDataSourceController.class ).loadVideos().execute().body();
+            return generateCleanVideos(videos);
         } catch ( Exception e ) {
             return new ArrayList<>();
         }
+    }
+
+    private ArrayList<Video> generateCleanVideos( ThugVideoResult videos ) {
+        ArrayList<Video> cleanVideos = new ArrayList<>(  );
+        for(ThugVideoResult.Item item : videos.items) {
+            Video video = new Video( item.snippet.title,item.snippet.thumbnails.high.url, item.id );
+            cleanVideos.add( video );
+        }
+        return cleanVideos;
     }
 }

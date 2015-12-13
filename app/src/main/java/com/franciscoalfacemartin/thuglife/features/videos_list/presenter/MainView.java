@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface MainView {
     void showError(int error);
-    void showSongs(List<Video> data);
+    void showVideos( List<Video> data);
 }
