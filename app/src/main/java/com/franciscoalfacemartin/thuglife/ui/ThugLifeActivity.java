@@ -6,6 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.franciscoalfacemartin.thuglife.BaseActivity;
@@ -33,6 +35,8 @@ public class ThugLifeActivity extends BaseActivity implements MainView, ItemClic
     @Inject VideoAdapter adapter;
     @Bind( R.id.toolbar ) Toolbar toolbar;
     @Bind( R.id.recycler_view ) RecyclerView recyclerView;
+    @Bind( R.id.progress ) ProgressBar progressBar;
+
 
     private ThugLifeActivityComponent component;
     private ArrayList<Video> videos;
@@ -91,9 +95,11 @@ public class ThugLifeActivity extends BaseActivity implements MainView, ItemClic
     }
 
     private void setupRecyclerView() {
+        recyclerView.setHasFixedSize( true );
         recyclerView.setLayoutManager( new LinearLayoutManager( this ) );
         adapter.setData( videos, this );
         recyclerView.setAdapter( adapter );
+        progressBar.setVisibility( View.GONE );
     }
 
     @Override
