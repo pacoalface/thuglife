@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -37,7 +35,6 @@ public class ThugLifeActivity extends BaseActivity implements MainView, ItemClic
     @Bind( R.id.recycler_view ) RecyclerView recyclerView;
     @Bind( R.id.progress ) ProgressBar progressBar;
 
-
     private ThugLifeActivityComponent component;
     private ArrayList<Video> videos;
 
@@ -48,34 +45,17 @@ public class ThugLifeActivity extends BaseActivity implements MainView, ItemClic
         return component;
     }
 
-
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_thug_life );
         ButterKnife.bind( this );
         component().inject( this );
+
         presenter.setView( this );
         presenter.loadAllSongs();
-        toolbar = (Toolbar) findViewById( R.id.toolbar );
+
         setSupportActionBar( toolbar );
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu( Menu menu ) {
-        getMenuInflater().inflate( R.menu.menu_thug_life, menu );
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected( MenuItem item ) {
-        int id = item.getItemId();
-        if ( id == R.id.action_settings ) {
-            presenter.loadAllSongs();
-            return true;
-        }
-
-        return super.onOptionsItemSelected( item );
     }
 
     @Override
@@ -104,6 +84,6 @@ public class ThugLifeActivity extends BaseActivity implements MainView, ItemClic
 
     @Override
     public void onClickItem( int position ) {
-        presenter.openVideo(videos.get( position ));
+        presenter.openVideo( videos.get( position ) );
     }
 }

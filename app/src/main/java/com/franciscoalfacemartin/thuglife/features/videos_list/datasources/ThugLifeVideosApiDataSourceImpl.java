@@ -34,7 +34,7 @@ public class ThugLifeVideosApiDataSourceImpl extends ApiDataSource implements Th
     private ArrayList<Video> generateCleanVideos( ThugVideoResult videos ) {
         ArrayList<Video> cleanVideos = new ArrayList<>(  );
         for(ThugVideoResult.Item item : videos.items) {
-            Video video = new Video( item.snippet.title,item.snippet.thumbnails.high.url, item.id );
+            Video video = new Video( item.snippet.title,item.snippet.thumbnails.high.url, item.snippet.resourceId.videoId );
             cleanVideos.add( video );
         }
         return cleanVideos;
